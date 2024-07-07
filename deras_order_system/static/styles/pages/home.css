@@ -1,0 +1,225 @@
+/* Home sayfası özel stiller */
+.product-list {
+  margin-right: 690px;
+}
+
+.order-details.sticky {
+  position: fixed;
+  top: 0; 
+}
+.order-details {
+  position: fixed;
+  right: 0;
+  bottom: 20px;
+  margin-right: 50px;
+  width: 45%;
+  z-index: 1000;
+}
+
+.product-list ul {
+  list-style-type: none; 
+  padding: 0; 
+}
+
+/* Ürün Listesi ve Sipariş Detayları Başlıkları */
+.product-list h2,
+.order-details h2 {
+  text-align: center; 
+  color: #4a5043; 
+}
+
+/* Ürün Kutusu Stilleri */
+.product-item {
+  background-color: #fff; 
+  padding: 10px; 
+  border: 1px solid #ccc; 
+  margin-bottom: 10px; 
+}
+
+/* Seçilen Ürün ve Toplam Stilleri */
+.selected-product,
+.total {
+  margin-top: 35px; 
+  padding: 10px; 
+  border: 1px solid #ccc; 
+}
+
+/* Seçilen Ürün İçin Sayısal Giriş Kutusu Stili */
+.selected-product input[type="number"] {
+  width: 80px; 
+  padding: 8px; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  font-size: 16px; 
+  box-sizing: border-box; 
+  outline: none; 
+}
+
+/* Sayısal Giriş Kutusu Odaklanma Stili */
+.selected-product input[type="number"]:focus {
+  border-color: #4caf50; 
+}
+
+/* Seçilen Ürün İçin Buton Stili */
+.selected-product button {
+  margin-top: 10px; 
+  padding: 5px 10px; 
+  background-color: #4caf50; 
+  color: white; 
+  border: none; 
+  cursor: pointer; 
+}
+
+/* Buton Hover (Üzerine Gelince) Stili */
+.selected-product button:hover {
+  background-color: #45a049; 
+}
+
+/* Ürün konteyneri grid sistemini kullanıyor */
+.product-container {
+  display: block;
+}
+
+/* Ürünlerin her biri için kenar yuvarlaklıkları tanımlandı */
+.product-item {
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+/* Miktar konteyneri için sağ taraf yuvarlaklıklar */
+.quantity-container {
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* Seçilen ürün için arka plan ve metin rengi */
+.product-item.selected {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+/* Ürün ve miktarı gösteren tablo grid sistemini kullanıyor */
+.product-quantity-table {
+  display: grid;
+  grid-template-columns: repeat(2, 20fr);
+}
+
+/* Sipariş butonu stil tanımlamaları */
+.order-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.order-button:hover {
+  background-color: #45a049;
+}
+
+/* Tarih seçici için flexbox kullanılarak ortalanmış ve yatay olarak dizilmiş */
+.select-date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+/* Tarih seçici input ve metin alanı stil tanımlamaları */
+.selected-date {
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #fefefe;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.select-date:focus-within {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Sipariş girildiğinde ürün kutucuğunun arka plan rengi sarıya dönüyor */
+.product-item.highlight {
+  background-color: #dbc310;
+}
+
+.logo {
+  width: 300px; /* Resmin genişliği */
+  height: 219px; /* Otomatik yükseklik ayarı */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.DerasHeader {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: #fefefe;
+  padding-bottom: 60px;
+}
+
+.header-content {
+  display: grid;
+  align-items: center;
+}
+
+.total {
+  background-color: #fefefe;
+}
+.selected-product {
+  background-color: #fefefe;
+  border-radius: 10px;
+}
+.DerasHeader h1 {
+  justify-content: center;
+  margin-top: 70px;
+  font-size: 2.5rem;
+  font-family: Cursive;
+  font-style: Lucida Handwriting;
+}
+.product-box {
+  width: 20%;
+  background-color: #ffbc50;
+  padding: 8px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  color: #333;
+  transition: transform 0.3s ease-in-out;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.details {
+  height: auto;
+  width: auto;
+}
+
+.product-box:hover {
+  transform: scale(1.05);
+}
+
+.underline {
+  border: none;
+  border-top: 1px solid #ccc; 
+  margin-top: 5px; 
+}
