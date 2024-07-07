@@ -229,6 +229,3 @@ function themeChange() {
   const logo = document.querySelector(".logo");
   if (logo) logo.classList.toggle("logo-dark-mode");
 }
-
-
-console.log("ol artık");
