@@ -1,0 +1,58 @@
+/* Admin sayfası özel stiller */
+.product-list-admin {
+  margin: 20px 0;
+}
+
+.product-title-admin {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.product-container-admin {
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.product-quantity-table {
+  list-style-type: none;
+  padding: 5px;
+}
+
+.product-item-admin {
+  font-size: 18px;
+  background-color: var(--white-color);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.form-section {
+  margin: 20px 0;
+}
+
+.form-section h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.form-section form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-section input[type="text"],
+.form-section input[type="number"],
+.form-section select {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-section button {
+  align-self: flex-start;
+}
+

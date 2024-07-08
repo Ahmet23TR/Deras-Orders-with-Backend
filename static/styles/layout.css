@@ -1,0 +1,72 @@
+/* Ana Bölüm Stili */
+main {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+/* Ürün Listesi ve Sipariş Detayları Stilleri */
+.product-list,
+.order-details {
+  width: 45%;
+}
+
+/* Sayfa düzeni ve genel bileşenler */
+header {
+  background-color: var(--bg-color);
+  padding: 10px;
+  text-align: center;
+}
+
+.DerasHeader {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: #fefefe;
+  padding-bottom: 60px;
+}
+
+.DerasHeader h1 {
+  justify-content: center;
+  margin-top: 70px;
+  font-size: 2.5rem;
+  font-family: Cursive;
+  font-style: Lucida Handwriting;
+}
+
+.logo {
+  width: 300px;
+  height: 219px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.header-content {
+  display: grid;
+  align-items: center;
+}
+
+/**************************/
+/* BELOW 944px (Tablets)*/
+/**************************/
+
+@media (max-width: 59em) {
+  html {
+    font-size: 100%;
+  }
+
+  .product-list {
+    margin-right: 420px; /* Sağdaki panelin genişliği + biraz boşluk */
+  }
+
+  .logo {
+    width: 200px; /* Resmin genişliği */
+    height: 170px; /* Otomatik yükseklik ayarı */
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+

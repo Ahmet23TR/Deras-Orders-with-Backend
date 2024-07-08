@@ -41,6 +41,17 @@ def home():
     products = Product.query.all()
     return render_template('index.html', products=products)
 
+@app.route('/view_data')
+@login_required
+def view_data():
+    if current_user.role != 'admin':
+        flash('Bu sayfayı görüntüleme yetkiniz yok.', 'danger')
+        return redirect(url_for('home'))
+    
+    users = User.query.all()
+    products = Product.query.all()
+    return render_template('view_data.html', users=users, products=products)
+
 @app.route('/api/orders', methods=['POST'])
 def add_order():
     data = request.json

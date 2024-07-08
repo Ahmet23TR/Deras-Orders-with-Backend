@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Paneli - Deras Order System</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='greybox.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/base.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/layout.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/components.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/dark.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/pages/admin.css') }}"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
@@ -16,6 +20,7 @@
         <button onclick="themeChange()" class="theme-button"><i class="fas fa-moon"></i> Tema Değiştir</button>
         <a href="{{ url_for('logout') }}" class="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a>
         <a href="{{ url_for('home') }}" class="main-page-button"><i class="fas fa-home"></i> Add Order Page</a>
+        <a href="{{ url_for('view_data') }}" class="view-data-button"><i class="fas fa-database"></i> View Data Page</a>
     </header>
     <main>
         <section class="product-list-admin">

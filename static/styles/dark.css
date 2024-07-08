@@ -1,0 +1,59 @@
+.logo-dark-mode {
+  filter: brightness(50%) saturate(50%); 
+}
+
+/* Koyu tema genel arka plan ve metin renkleri */
+body.dark,
+.product-title.dark {
+  background-color: #212529; 
+  color: #fff; 
+}
+
+/* Koyu tema için link renkleri */
+body.dark a {
+  color: #1e90ff; 
+}
+
+/* Koyu tema için ürün öğeleri */
+.product-item.dark,
+.product-item-admin.dark,
+.selected-date.dark,
+.quantity-container.dark,
+.selected-product.dark,
+.total.dark,
+.DerasHeader.dark,
+.last-item.dark,
+body.dark .product-item {
+  background-color: #343a40; 
+  color: #fff; 
+}
+
+/* Koyu tema için özel ürün seçimi ve vurgulama */
+body.dark .product-item.selected {
+  background-color: #4caf50; 
+}
+
+/* Koyu tema aktifken vurgulanan ürünün arka planı */
+body.dark .product-item.highlighted {
+  background-color: #ff0; 
+}
+
+/* Koyu tema için DerasHeader özel arka plan */
+.DerasHeader.dark {
+  background-color: #7f7f7f; 
+}
+
+.logout-button.dark,
+.main-page-button.dark,
+.admin-button.dark{
+  color: inherit;
+  text-decoration: none;
+}
+
+.logout-button.dark:hover,
+.main-page-button.dark:hover,
+.admin-button.dark:hover{
+  background-color: #4CAF50;
+  color: inherit;
+  text-decoration: none;
+}

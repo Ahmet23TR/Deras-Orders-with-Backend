@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veritabanı Verileri - Deras Order System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/components.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/pages/view_data.css') }}">
+</head>
+<body>
+    <header class="DerasHeader">
+        <nav>
+            <img src="{{ url_for('static', filename='Deras.png') }}" alt="Logo" class="logo">
+            <h1>Veritabanı</h1>
+        </nav>
+        <a href="{{ url_for('home') }}" class="main-page-button"><i class="fas fa-home"></i> Ana Sayfa</a>
+    </header>
+    <main>
+        <section>
+            <h2>Kullanıcılar</h2>
+            <table class="data-table">
+                <tr>
+                    <th>ID</th>
+                    <th>Kullanıcı Adı</th>
+                    <th>Şifre</th>
+                    <th>Rol</th>
+                </tr>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.password }}</td>
+                    <td>{{ user.role }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </section>
+        <section>
+            <h2>Ürünler</h2>
+            <table class="data-table">
+                <tr>
+                    <th>ID</th>
+                    <th>Ürün Adı</th>
+                </tr>
+                {% for product in products %}
+                <tr>
+                    <td>{{ product.id }}</td>
+                    <td>{{ product.name }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 DERAS SWEETS&BAKERY. Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>
+
+
+
+
+

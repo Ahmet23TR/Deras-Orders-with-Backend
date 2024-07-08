@@ -6,6 +6,7 @@
 .order-details.sticky {
   position: fixed;
   top: 0; 
+  left: 0; 
 }
 .order-details {
   position: fixed;
