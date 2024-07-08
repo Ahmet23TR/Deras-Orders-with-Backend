@@ -129,6 +129,74 @@ def update_order():
     except Exception as e:
         db.session.rollback()
         return jsonify({'status': 'error', 'message': str(e)})
+    
+@app.route('/add_user', methods=['POST'])
+@login_required
+def add_user():
+    if current_user.role != 'admin':
+        flash('Bu işlemi yapma yetkiniz yok.', 'danger')
+        return redirect(url_for('view_data'))
+
+    username = request.form.get('username')
+    password = request.form.get('password')
+    role = request.form.get('role')
+
+    if username and password and role:
+        new_user = User(username=username, password=password, role=role)
+        db.session.add(new_user)
+        db.session.commit()
+        flash('Kullanıcı başarıyla eklendi.', 'success')
+    else:
+        flash('Tüm alanları doldurmanız gerekmektedir.', 'danger')
+    
+    return redirect(url_for('view_data'))
+
+@app.route('/delete_user', methods=['POST'])
+@login_required
+def delete_user():
+    if current_user.role != 'admin':
+        flash('Bu işlemi yapma yetkiniz yok.', 'danger')
+        return redirect(url_for('view_data'))
+
+    user_id = request.form.get('user_id')
+    user = User.query.get(user_id)
+
+    if user:
+        db.session.delete(user)
+        db.session.commit()
+        flash('Kullanıcı başarıyla silindi.', 'success')
+    else:
+        flash('Kullanıcı bulunamadı.', 'danger')
+    
+    return redirect(url_for('view_data'))
+
+@app.route('/edit_user', methods=['POST'])
+@login_required
+def edit_user():
+    if current_user.role != 'admin':
+        flash('Bu işlemi yapma yetkiniz yok.', 'danger')
+        return redirect(url_for('view_data'))
+
+    user_id = request.form.get('user_id')
+    new_username = request.form.get('username')
+    new_password = request.form.get('password')
+    new_role = request.form.get('role')
+
+    user = User.query.get(user_id)
+
+    if user:
+        if new_username:
+            user.username = new_username
+        if new_password:
+            user.password = new_password
+        if new_role:
+            user.role = new_role
+        db.session.commit()
+        flash('Kullanıcı başarıyla güncellendi.', 'success')
+    else:
+        flash('Kullanıcı bulunamadı.', 'danger')
+    
+    return redirect(url_for('view_data'))
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():

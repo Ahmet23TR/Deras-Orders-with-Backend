@@ -20,8 +20,8 @@
         <a href="{{ url_for('home') }}" class="main-page-button"><i class="fas fa-home"></i> Add Order Page</a>
         <a href="{{ url_for('admin') }}" class="admin-button-data"><i class="fas fa-user-shield"></i> Admin Page</a>
     </header>
-    <main>
-        <section>
+    <main class="main-container">
+        <section class="user-data">
             <h2>Kullanıcılar</h2>
             <table class="data-table">
                 <tr>
@@ -40,21 +40,73 @@
                 {% endfor %}
             </table>
         </section>
-        <!-- <section>
-            <h2>Ürünler</h2>
-            <table class="data-table">
-                <tr>
-                    <th>ID</th>
-                    <th>Ürün Adı</th>
-                </tr>
-                {% for product in products %}
-                <tr>
-                    <td>{{ product.id }}</td>
-                    <td>{{ product.name }}</td>
-                </tr>
-                {% endfor %}
-            </table>
-        </section> -->
+        <section class="user-operations">
+            <div class="form-buttons">
+                <button onclick="showForm('edit-user-form')" class="operation-button" id="default-open">Kullanıcı Düzenle</button>
+                <button onclick="showForm('add-user-form')" class="operation-button">Kullanıcı Ekle</button>
+                <button onclick="showForm('delete-user-form')" class="operation-button">Kullanıcı Sil</button>
+            </div>
+            <div class="form-container">
+                <!-- Kullanıcı Düzenleme Formu -->
+                <section class="form-section edit-user" id="edit-user-form">
+                    <h2 class="form-title">Kullanıcı Düzenle</h2>
+                    <form action="/edit_user" method="POST">
+                        <label for="edit_user_id">Kullanıcı Seç:</label>
+                        <select id="edit_user_id" name="user_id" required>
+                            <option value="" disabled selected>Kullanıcı Seç</option>
+                            {% for user in users %}
+                            <option value="{{ user.id }}">{{ user.username }}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="new_username">Yeni Kullanıcı Adı:</label>
+                        <input type="text" id="new_username" name="username">
+                        <label for="new_password">Yeni Şifre:</label>
+                        <input type="password" id="new_password" name="password">
+                        <label for="new_role">Yeni Rol:</label>
+                        <select id="new_role" name="role">
+                            <option value="" disabled selected>Rol Seç</option>
+                            <option value="user">Kullanıcı</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                        <button type="submit" class="order-button">Kullanıcıyı Güncelle</button>
+                    </form>
+                </section>
+                
+                <!-- Kullanıcı Ekleme Formu -->
+                <section class="form-section add-user" id="add-user-form">
+                    <h2 class="form-title">Kullanıcı Ekle</h2>
+                    <form action="/add_user" method="POST">
+                        <label for="username">Kullanıcı Adı:</label>
+                        <input type="text" id="username" name="username" required>
+                        <label for="password">Şifre:</label>
+                        <input type="password" id="password" name="password" required>
+                        <label for="role">Rol:</label>
+                        <select id="role" name="role" required>
+                            <option value="user">Kullanıcı</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                        <button type="submit" class="order-button">Kullanıcı Ekle</button>
+                    </form>
+                </section>
+
+                <!-- Kullanıcı Silme Formu -->
+                <section class="form-section delete-user" id="delete-user-form">
+                    <h2 class="form-title">Kullanıcı Sil</h2>
+                    <form action="/delete_user" method="POST">
+                        <label for="user_id">Kullanıcı Seç:</label>
+                        <select id="user_id" name="user_id" required>
+                            <option value="" disabled selected>Kullanıcı Seç</option>
+                            {% for user in users %}
+                            <option value="{{ user.id }}">{{ user.username }}</option>
+                            {% endfor %}
+                        </select>
+                        <button type="submit" class="order-button">Kullanıcı Sil</button>
+                    </form>
+                </section>
+
+                
+            </div>
+        </section>
     </main>
     <footer>
         <p>&copy; 2024 DERAS SWEETS&BAKERY. Tüm hakları saklıdır.</p>
@@ -63,10 +115,36 @@
         function themeChange() {
             document.body.classList.toggle("dark-mode");
         }
+
+        function showForm(formId) {
+            // Tüm formları gizle
+            document.getElementById('edit-user-form').style.display = 'none';
+            document.getElementById('add-user-form').style.display = 'none';
+            document.getElementById('delete-user-form').style.display = 'none';
+
+            // Seçilen formu göster
+            document.getElementById(formId).style.display = 'block';
+
+            // Butonları sıfırla
+            var buttons = document.getElementsByClassName('operation-button');
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].style.backgroundColor = '';
+            }
+
+            // Seçili butonu vurgula
+            document.querySelector('button[onclick="showForm(\'' + formId + '\')"]').style.backgroundColor = '#4CAF50';
+        }
+
+        // Sayfa yüklendiğinde varsayılan olarak "Kullanıcı Düzenle" formunu göster
+        document.addEventListener('DOMContentLoaded', function() {
+            showForm('edit-user-form');
+        });
     </script>
-    <script src="{{ url_for('static', filename='greybox.js') }}"></script>
 </body>
 </html>
+
+
+
 
 
 
