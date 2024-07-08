@@ -5,18 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - Deras Order System</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/base.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/layout.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/components.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/pages/register.css') }}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
-    <h2>Register</h2>
-    <form method="POST" action="/register">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <button type="submit">Register</button>
-    </form>
-    <p>Already have an account? <a href="/login">Login here</a></p>
+    <header class="DerasHeader">
+        <nav>
+            <img src="{{ url_for('static', filename='Deras.png') }}" alt="Logo" class="logo">
+            <h1>Kayıt Ol</h1>
+        </nav>
+    </header>
+    <main class="register-main">
+        <section class="form-section">
+            <h2 class="form-title">Kayıt Ol</h2>
+            <form method="POST" action="/register">
+                <label for="username">Kullanıcı Adı:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Şifre:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit" class="register-button">Kayıt Ol</button>
+            </form>
+            <p>Zaten bir hesabınız var mı? <a href="/login">Giriş Yap</a></p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 DERAS SWEETS&BAKERY. Tüm hakları saklıdır.</p>
+    </footer>
 </body>
 </html>

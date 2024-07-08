@@ -1,0 +1,72 @@
+/* Register sayfası özel stiller */
+.register-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 160px); /* Sayfanın geri kalanını kaplamak için */
+  background-color: var(--bg-color);
+}
+
+.form-section {
+  background-color: var(--white-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.form-title {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: var(--text-color);
+}
+
+.form-section label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: var(--text-color);
+  text-align: left;
+}
+
+.form-section input[type="text"],
+.form-section input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.register-button {
+  background-color: var(--highlight-color);
+  color: var(--white-color);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register-button:hover {
+  background-color: #45a049;
+}
+
+.form-section p {
+  margin-top: 20px;
+  color: var(--text-color);
+}
+
+.form-section a {
+  color: var(--highlight-color);
+  text-decoration: none;
+}
+
+.form-section a:hover {
+  text-decoration: underline;
+}

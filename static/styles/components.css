@@ -15,6 +15,16 @@
   border-bottom-left-radius: 10px;
 }
 
+/* Aydınlık tema için ürün kutucukları */
+.product-item-admin {
+  background-color: #fff; /* Beyaz arka plan rengi */
+  color: #000; /* Siyah yazı rengi */
+  font-size: 18px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
 /* Seçilen Ürün İçin Sayısal Giriş Kutusu Stili */
 .selected-product input[type="number"] {
   width: 80px;
@@ -78,13 +88,16 @@
   background-color: var(--highlight-color);
   color: var(--white-color);
   border-radius: 5px;
+  border: none;
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .order-button:hover {
-  background-color: #45a049;
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
 }
 
 /* Tarih seçici */
@@ -271,6 +284,30 @@
 }
 
 .view-data-button:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+}
+
+.admin-button-data{
+  background-color: #4CAF50; /* Yeşil arka plan */
+  border: none;
+  position: absolute;
+  top: 145px;
+  right: 10px;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  border-radius: 5px;
+}
+
+.admin-button-data:hover {
   background-color: white;
   color: black;
   border: 2px solid #4CAF50;

@@ -5,18 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Deras Order System</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/base.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/layout.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/components.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/pages/login.css') }}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
-    <h2>Login</h2>
-    <form method="POST" action="/login">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <button type="submit">Login</button>
-    </form>
-    <p>Don't have an account? <a href="/register">Register here</a></p>
+    <header class="DerasHeader">
+        <nav>
+            <img src="{{ url_for('static', filename='Deras.png') }}" alt="Logo" class="logo">
+            <h1>Giriş Yap</h1>
+        </nav>
+    </header>
+    <main class="login-main">
+        <section class="form-section">
+            <h2 class="form-title">Giriş Yap</h2>
+            <form method="POST" action="/login">
+                <label for="username">Kullanıcı Adı:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Şifre:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit" class="login-button">Giriş Yap</button>
+            </form>
+            <p>Hesabınız yok mu? <a href="/register">Kayıt Ol</a></p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 DERAS SWEETS&BAKERY. Tüm hakları saklıdır.</p>
+    </footer>
 </body>
 </html>

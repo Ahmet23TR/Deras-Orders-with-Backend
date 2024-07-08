@@ -7,14 +7,18 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/base.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/components.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/pages/view_data.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
     <header class="DerasHeader">
         <nav>
             <img src="{{ url_for('static', filename='Deras.png') }}" alt="Logo" class="logo">
-            <h1>Veritabanı</h1>
+            <h1>Kullanıcı Verileri</h1>
         </nav>
-        <a href="{{ url_for('home') }}" class="main-page-button"><i class="fas fa-home"></i> Ana Sayfa</a>
+        <button onclick="themeChange()" class="theme-button"><i class="fas fa-moon"></i> Tema Değiştir</button>
+        <a href="{{ url_for('logout') }}" class="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        <a href="{{ url_for('home') }}" class="main-page-button"><i class="fas fa-home"></i> Add Order Page</a>
+        <a href="{{ url_for('admin') }}" class="admin-button-data"><i class="fas fa-user-shield"></i> Admin Page</a>
     </header>
     <main>
         <section>
@@ -36,7 +40,7 @@
                 {% endfor %}
             </table>
         </section>
-        <section>
+        <!-- <section>
             <h2>Ürünler</h2>
             <table class="data-table">
                 <tr>
@@ -50,15 +54,47 @@
                 </tr>
                 {% endfor %}
             </table>
-        </section>
+        </section> -->
     </main>
     <footer>
         <p>&copy; 2024 DERAS SWEETS&BAKERY. Tüm hakları saklıdır.</p>
     </footer>
+    <script>
+        function themeChange() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
+    <script src="{{ url_for('static', filename='greybox.js') }}"></script>
 </body>
 </html>
 
 
 
 
+<!-- from app import db, User, Product
 
+# Örnek admin kullanıcı ekleme
+admin = User(username='1', password='1', role='admin')
+db.session.add(admin)
+
+# Örnek ürünler ekleme
+products = [
+    "Havuç", "Havuç Cevizli", "Kare", "Kare Çikolatalı", "Kare Çikolatalı Fındıklı", 
+    "Kare Cevizli", "Midye", "Midye Cevizli", "Midye Çikolatalı", "Sobiyet", 
+    "Sarma", "Sultan Baklava", "Sultan Cevizli", "Padişah", "Padişah Cevizli", "Flower Baklava", "Kıvrım", "Kıvrım Cevizli", "Bülbül Yuvası","Bohca Baklava", "Soğuk Mix", "Soğuk Fıstıklı", 
+    "Mix Baklava", "Parmak Baklava", "Kadayıf Fıstıklı", "Sultaniye Kadayıf", 
+    "Burma Kadayıf (Peynirli)", "Burma Kadayıf (Fıstıklı)", "Börek", 
+    "Trileçe Karamel", "Trileçe Fıstıklı", "Trileçe Çilekli", "Trileçe Çikolatalı", 
+    "Fıstık Tozu", "Ceviz", "Bun 35g", "Bun 100g", "Bun 140g", 
+    "Sandwich Ekmeği", "Hamburger Ekmeği", "Simit", "Simit 50g", "Simit 120g", 
+    "Simit Brown", "Simit Brown 120g", "Simit Stuffed", "Simit Stuffed 50g", 
+    "Simit Sandwich", "Simit Jumbo", "Simit Balls", "Acma Balls", 
+    "Stuffed Acma Balls", "Acma", "Acma 50g", "Acma Stuffed", "Acma Stuffed 50g", 
+    "Acma Sandwich", "Pogaca", "Pogaca 50g", "Pogaca Stuffed", "Mini Pizza"
+]
+
+for product_name in products:
+    new_product = Product(name=product_name, quantity=0)
+    db.session.add(new_product)
+
+db.session.commit() -->

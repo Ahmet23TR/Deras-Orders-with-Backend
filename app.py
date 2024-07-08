@@ -19,8 +19,9 @@ class User(UserMixin, db.Model):
 
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50), nullable=False)
+    name = db.Column(db.String(100), nullable=False)
     quantity = db.Column(db.Integer, default=0)
+    position = db.Column(db.Integer, default=0)  # Yeni eklenen kolon
 
 class Order(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -38,7 +39,7 @@ def load_user(user_id):
 @app.route('/')
 @login_required
 def home():
-    products = Product.query.all()
+    products = Product.query.order_by(Product.position).all()
     return render_template('index.html', products=products)
 
 @app.route('/view_data')
@@ -71,7 +72,7 @@ def add_order():
 def admin():
     if current_user.role != 'admin':
         return redirect(url_for('home'))
-    products = Product.query.all()
+    products = Product.query.order_by(Product.position).all()
     return render_template('admin.html', products=products)
 
 @app.route('/add_product', methods=['POST'])
@@ -109,6 +110,25 @@ def update_product():
         product.name = new_name
         db.session.commit()
     return redirect(url_for('admin'))
+
+@app.route('/update_order', methods=['POST'])
+@login_required
+def update_order():
+    if current_user.role != 'admin':
+        return jsonify({'status': 'error', 'message': 'Bu işlemi yapma yetkiniz yok.'})
+    
+    data = request.get_json()
+    order = data.get('order', [])
+    
+    try:
+        for item in order:
+            product = Product.query.get(item['id'])
+            product.position = item['position']
+        db.session.commit()
+        return jsonify({'status': 'success'})
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'status': 'error', 'message': str(e)})
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():

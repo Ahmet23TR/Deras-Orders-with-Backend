@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/dark.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/pages/admin.css') }}"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
 </head>
 <body>
     <header class="DerasHeader">
@@ -26,9 +27,9 @@
         <section class="product-list-admin">
             <h2 class="product-title-admin">Ürünler</h2>
             <div class="product-container-admin">
-                <ul>
+                <ul id="sortable-list">
                     {% for product in products %}
-                    <li class="product-quantity-table">
+                    <li class="product-table" data-id="{{ product.id }}">
                         <div class="product-item-admin">{{ product.name }}</div>
                     </li>
                     {% endfor %}
@@ -75,7 +76,37 @@
         function themeChange() {
             document.body.classList.toggle("dark-mode");
         }
-    </script>
+    
+        // Sortable.js kullanarak ürün sıralamasını etkinleştir
+        const sortable = new Sortable(document.getElementById('sortable-list'), {
+            animation: 150,
+            onEnd: function (/**Event*/evt) {
+                const itemEl = evt.item;  // dragged HTMLElement
+                // Ürün sıralamasını backend'e kaydetmek için AJAX isteği gönder
+                const order = Array.from(document.querySelectorAll('#sortable-list li')).map((item, index) => ({
+                    id: item.getAttribute('data-id'),
+                    position: index + 1
+                }));
+    
+                fetch('/update_order', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ order: order }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status !== 'success') {
+                        alert('Sıralama güncellenirken bir hata oluştu.');
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            },
+        });
+    </script>    
     <script src="{{ url_for('static', filename='greybox.js') }}"></script>
 </body>
 </html>

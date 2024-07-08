@@ -22,6 +22,7 @@
         <a href="{{ url_for('logout') }}" class="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a>
         {% if current_user.is_authenticated and current_user.role == 'admin' %}
         <a href="{{ url_for('admin') }}" class="admin-button"><i class="fas fa-user-shield"></i> Admin Page</a>
+        <a href="{{ url_for('view_data') }}" class="view-data-button"><i class="fas fa-database"></i> View Data Page</a>
         {% endif %}
     </header>
     <div class="select-date">

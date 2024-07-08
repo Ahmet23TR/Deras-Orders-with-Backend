@@ -5,25 +5,22 @@
 /* Koyu tema genel arka plan ve metin renkleri */
 body.dark,
 .product-title.dark {
-  background-color: #212529; 
+  background-color: #343a40; 
   color: #fff; 
 }
 
-/* Koyu tema için link renkleri */
-body.dark a {
-  color: #1e90ff; 
-}
 
 /* Koyu tema için ürün öğeleri */
-.product-item.dark,
+body.dark,
 .product-item-admin.dark,
+.product-item.dark,
 .selected-date.dark,
 .quantity-container.dark,
 .selected-product.dark,
 .total.dark,
 .DerasHeader.dark,
 .last-item.dark,
-body.dark .product-item {
+.product-item.dark {
   background-color: #343a40; 
   color: #fff; 
 }
@@ -36,6 +33,17 @@ body.dark .product-item.selected {
 /* Koyu tema aktifken vurgulanan ürünün arka planı */
 body.dark .product-item.highlighted {
   background-color: #ff0; 
+}
+
+/* Karanlık tema için ürün kutucukları */
+body.dark .product-item-admin {
+  background-color: #343a40; /* Karanlık arka plan rengi */
+  color: #fff; /* Beyaz yazı rengi */
+}
+
+body.dark .product-table {
+  background-color: #343a40; /* Karanlık arka plan rengi */
+  color: #fff; /* Beyaz yazı rengi */
 }
 
 /* Koyu tema için DerasHeader özel arka plan */
