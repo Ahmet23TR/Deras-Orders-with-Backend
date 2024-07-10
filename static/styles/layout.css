@@ -5,12 +5,6 @@ main {
   padding: 20px;
 }
 
-/* Ürün Listesi ve Sipariş Detayları Stilleri */
-.product-list,
-.order-details {
-  width: 45%;
-}
-
 /* Sayfa düzeni ve genel bileşenler */
 header {
   background-color: var(--bg-color);

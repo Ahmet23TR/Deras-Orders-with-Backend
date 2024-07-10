@@ -20,6 +20,7 @@
         <a href="{{ url_for('home') }}" class="main-page-button"><i class="fas fa-home"></i> Add Order Page</a>
         <a href="{{ url_for('admin') }}" class="admin-button-data"><i class="fas fa-user-shield"></i> Admin Page</a>
     </header>
+    <script src="{{ url_for('static', filename='greybox.js') }}"></script>
     <main class="main-container">
         <section class="user-data">
             <h2>Kullanıcılar</h2>
@@ -112,33 +113,29 @@
         <p>&copy; 2024 DERAS SWEETS&BAKERY. Tüm hakları saklıdır.</p>
     </footer>
     <script>
-        function themeChange() {
-            document.body.classList.toggle("dark-mode");
-        }
-
         function showForm(formId) {
-            // Tüm formları gizle
-            document.getElementById('edit-user-form').style.display = 'none';
-            document.getElementById('add-user-form').style.display = 'none';
-            document.getElementById('delete-user-form').style.display = 'none';
+  // Tüm formları gizle
+  document.getElementById('edit-user-form').style.display = 'none';
+  document.getElementById('add-user-form').style.display = 'none';
+  document.getElementById('delete-user-form').style.display = 'none';
 
-            // Seçilen formu göster
-            document.getElementById(formId).style.display = 'block';
+  // Seçilen formu göster
+  document.getElementById(formId).style.display = 'block';
 
-            // Butonları sıfırla
-            var buttons = document.getElementsByClassName('operation-button');
-            for (var i = 0; i < buttons.length; i++) {
-                buttons[i].style.backgroundColor = '';
-            }
+  // Butonları sıfırla
+  var buttons = document.getElementsByClassName('operation-button');
+  for (var i = 0; i < buttons.length; i++) {
+      buttons[i].style.backgroundColor = '';
+  }
 
-            // Seçili butonu vurgula
-            document.querySelector('button[onclick="showForm(\'' + formId + '\')"]').style.backgroundColor = '#4CAF50';
-        }
+  // Seçili butonu vurgula
+  document.querySelector('button[onclick="showForm(\'' + formId + '\')"]').style.backgroundColor = '#4CAF50';
+}
 
-        // Sayfa yüklendiğinde varsayılan olarak "Kullanıcı Düzenle" formunu göster
-        document.addEventListener('DOMContentLoaded', function() {
-            showForm('edit-user-form');
-        });
+// Sayfa yüklendiğinde varsayılan olarak "Kullanıcı Düzenle" formunu göster
+document.addEventListener('DOMContentLoaded', function() {
+  showForm('edit-user-form');
+});
     </script>
 </body>
 </html>

@@ -1,6 +1,8 @@
 /* Home sayfası özel stiller */
-.product-list {
-  margin-right: 690px;
+@media (min-width: 59em) {
+  .product-list {
+    margin-right: 690px; /* Sağdaki panelin genişliği + biraz boşluk */
+  }
 }
 
 .order-details.sticky {
