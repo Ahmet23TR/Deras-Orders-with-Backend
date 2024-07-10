@@ -114,28 +114,40 @@
     </footer>
     <script>
         function showForm(formId) {
-  // Tüm formları gizle
-  document.getElementById('edit-user-form').style.display = 'none';
-  document.getElementById('add-user-form').style.display = 'none';
-  document.getElementById('delete-user-form').style.display = 'none';
+            // Tüm formları gizle
+            document.getElementById('edit-user-form').style.display = 'none';
+            document.getElementById('add-user-form').style.display = 'none';
+            document.getElementById('delete-user-form').style.display = 'none';
 
-  // Seçilen formu göster
-  document.getElementById(formId).style.display = 'block';
+            // Seçilen formu göster
+            document.getElementById(formId).style.display = 'block';
 
-  // Butonları sıfırla
-  var buttons = document.getElementsByClassName('operation-button');
-  for (var i = 0; i < buttons.length; i++) {
-      buttons[i].style.backgroundColor = '';
-  }
+            // Butonları sıfırla
+            var buttons = document.getElementsByClassName('operation-button');
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].style.backgroundColor = '';
+            }
 
-  // Seçili butonu vurgula
-  document.querySelector('button[onclick="showForm(\'' + formId + '\')"]').style.backgroundColor = '#4CAF50';
-}
+            // Seçili butonu vurgula
+            document.querySelector('button[onclick="showForm(\'' + formId + '\')"]').style.backgroundColor = '#4CAF50';
+            }
 
-// Sayfa yüklendiğinde varsayılan olarak "Kullanıcı Düzenle" formunu göster
-document.addEventListener('DOMContentLoaded', function() {
-  showForm('edit-user-form');
-});
+            // Sayfa yüklendiğinde varsayılan olarak "Kullanıcı Düzenle" formunu göster
+            document.addEventListener('DOMContentLoaded', function() {
+            showForm('edit-user-form');
+        });
+        
+        function themeChange() {
+        document.body.classList.toggle("dark");
+        document
+            .querySelectorAll(
+            ".product-item, .quantity-container, .product-title, .selected-product, .total, .DerasHeader, .selected-date, .last-item, .logout-button, .main-page-button, .admin-button"
+            )
+            .forEach((element) => element.classList.toggle("dark"));
+
+        const logo = document.querySelector(".logo");
+        if (logo) logo.classList.toggle("logo-dark-mode");
+        }
     </script>
 </body>
 </html>
