@@ -5,7 +5,6 @@
 /* Koyu tema genel arka plan ve metin renkleri */
 body.dark,
 .product-title.dark {
-  background-color: #343a40; 
   color: #fff; 
 }
 
